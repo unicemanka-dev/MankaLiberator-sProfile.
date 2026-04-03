@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manka Liberator | Empowering Lives</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                        display: ['Outfit', 'ui-sans-serif', 'system-ui'],
+                    },
+                    colors: {
+                        indigo: {
+                            50: '#f5f7ff',
+                            100: '#ebf0fe',
+                            200: '#ced9fb',
+                            300: '#adc1fa',
+                            400: '#83a2f7',
+                            500: '#5b7cf2',
+                            600: '#405de6',
+                            700: '#3449b8',
+                            800: '#2a3a91',
+                            900: '#232f75',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Outfit', sans-serif; letter-spacing: -0.025em; }
+        
+        .nav-blur {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .mobile-menu-enter {
+            animation: slideDown 0.3s ease-out forwards;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4 bg-transparent">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold font-display text-indigo-900">
+                MANKA<span class="text-indigo-600">.</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#home" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Home</a>
+                <a href="#mission" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Mission</a>
+                <a href="#about" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">About</a>
+                <a href="#books" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Books</a>
+                <a href="#liberty" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Liberty Global</a>
+                <a href="#safehome" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Safe Home</a>
+                <a href="#contact" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Contact</a>
+            </div>
+
+            <button class="md:hidden p-2 text-gray-600" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-white border-t border-gray-100 shadow-xl p-6 md:hidden mobile-menu-enter">
+            <div class="flex flex-col gap-4">
+                <a href="#home" onclick="toggleMobileMenu()" class="flex items-center gap-3 text-lg font-medium text-gray-700 hover:text-indigo-600"><i data-lucide="home" class="w-5 h-5"></i>Home</a>
+                <a href="#mission" onclick="toggleMobileMenu()" class="flex items-center gap-3 text-lg font-medium text-gray-700 hover:text-indigo-600"><i data-lucide="globe" class="w-5 h-5"></i>Mission</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="flex items-center gap-3 text-lg font-medium text-gray-700 hover:text-indigo-600"><i data-lucide="user" class="w-5 h-5"></i>About</a>
+                <a href="#books" onclick="toggleMobileMenu()" class="flex items-center gap-3 text-lg font-medium text-gray-700 hover:text-indigo-600"><i data-lucide="book-open" class="w-5 h-5"></i>Books</a>
+                <a href="#liberty" onclick="toggleMobileMenu()" class="flex items-center gap-3 text-lg font-medium text-gray-700 hover:text-indigo-600"><i data-lucide="globe" class="w-5 h-5"></i>Liberty Global</a>
+                <a href="#safehome" onclick="toggleMobileMenu()" class="flex items-center gap-3 text-lg font-medium text-gray-700 hover:text-indigo-600"><i data-lucide="heart" class="w-5 h-5"></i>Safe Home</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="flex items-center gap-3 text-lg font-medium text-gray-700 hover:text-indigo-600"><i data-lucide="mail" class="w-5 h-5"></i>Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+            <div class="absolute inset-0 -z-10">
+                <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-indigo-50 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/4"></div>
+                <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-blue-50 rounded-full blur-3xl opacity-50 translate-y-1/2 -translate-x-1/4"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-indigo-600 uppercase bg-indigo-50 rounded-full">
+                        Founder & Executive Director
+                    </span>
+                    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                        Empowering Lives, <br />
+                        <span class="text-indigo-600">Building Futures.</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 max-w-lg leading-relaxed">
+                        Manka Liberator is a visionary leader dedicated to mental health support and multifaceted global development through SAFE HOME and LIBERTY GLOBAL ASSOCIATION.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="px-8 py-4 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
+                            Get in Touch
+                        </a>
+                        <a href="#about" class="px-8 py-4 border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-indigo-600 hover:text-indigo-600 transition-all">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="aspect-square rounded-3xl bg-gradient-to-br from-indigo-100 to-blue-50 overflow-hidden shadow-2xl">
+                        <img src="https://picsum.photos/seed/manka/800/800" alt="Manka Liberator" class="w-full h-full object-cover mix-blend-multiply opacity-80">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl hidden lg:block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600">
+                                <i data-lucide="heart"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 font-medium">Focusing on</p>
+                                <p class="font-bold text-gray-900">MHPSS Advocacy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mission" class="py-20 bg-indigo-600 text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-0 left-0 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
+            </div>
+            <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+                <h2 class="text-2xl md:text-3xl font-display font-semibold mb-8 text-indigo-100 uppercase tracking-widest">Our Mission</h2>
+                <p class="text-3xl md:text-5xl font-bold leading-tight mb-8">
+                    "To Bring <span class="text-indigo-200">Holistic Liberty</span> to especially women, youths and girls to joyfully serve God and multiply across different sectors."
+                </p>
+                <div class="w-24 h-1 bg-indigo-300 mx-auto rounded-full"></div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="relative">
+                        <div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-xl">
+                            <img src="https://picsum.photos/seed/visionary/800/1000" alt="Leadership" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -top-6 -left-6 w-24 h-24 bg-indigo-600 rounded-2xl -z-10"></div>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-bold mb-8">About Manka Liberator</h2>
+                        <div class="space-y-6 text-lg text-gray-600 leading-relaxed">
+                            <p>Manka Liberator is an <span class="font-semibold text-indigo-600">Author, Counselor, and dedicated Civil Society Worker</span> with over 15 years of experience transforming lives.</p>
+                            <p>A passionate advocate for the holistic well-being of women, youth, and children, she has served extensively across schools, churches, and private practice to champion mental health and spiritual growth.</p>
+                            <p>She is the Founder and Executive Director of <span class="font-semibold text-indigo-600">SAFE HOME</span> (MHPSS) and the visionary behind <span class="font-semibold text-indigo-600">LIBERTY GLOBAL ASSOCIATION</span>.</p>
+                        </div>
+                        <div class="mt-10 grid grid-cols-2 gap-6">
+                            <div class="p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+                                <p class="text-3xl font-bold text-indigo-600 mb-1">15+</p>
+                                <p class="text-sm text-gray-500 font-medium">Years Experience</p>
+                            </div>
+                            <div class="p-4 bg-white rounded-xl shadow-sm border border-gray-100">
+                                <p class="text-3xl font-bold text-indigo-600 mb-1">MHPSS</p>
+                                <p class="text-sm text-gray-500 font-medium">Expertise</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="books" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Recent Publications</h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Explore Manka's literary works that provide a roadmap for healing, resilience, and spiritual growth.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                    <div class="group">
+                        <div class="relative aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl mb-6 transform group-hover:-translate-y-2 transition-transform duration-300">
+                            <img src="https://picsum.photos/seed/book1/400/600" alt="Book 1" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+                                <p class="text-white font-medium">Available for Purchase</p>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center group-hover:text-indigo-600 transition-colors uppercase">FROM THE THRESHING FLOOR TO THE WELL WITHIN</h3>
+                        <p class="text-gray-500 text-center italic">A Journey of Transformation</p>
+                    </div>
+                    <div class="group">
+                        <div class="relative aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl mb-6 transform group-hover:-translate-y-2 transition-transform duration-300">
+                            <img src="https://picsum.photos/seed/book2/400/600" alt="Book 2" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
+                                <p class="text-white font-medium">Available for Purchase</p>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-center group-hover:text-indigo-600 transition-colors uppercase">FROM THE BATTLEFIELD TO THE WELL WITHIN</h3>
+                        <p class="text-gray-500 text-center italic">Finding Peace Amidst Conflict</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="liberty" class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Liberty Global Association</h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto">A multifaceted agency dedicated to excellence across eight specialized arms.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors"><i data-lucide="book-open"></i></div>
+                        <h3 class="text-xl font-bold mb-3">Liberty Publishing House</h3>
+                        <p class="text-gray-500 text-sm">Empowering voices through literature and knowledge sharing.</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors"><i data-lucide="cpu"></i></div>
+                        <h3 class="text-xl font-bold mb-3">Liberty Tech Innovation</h3>
+                        <p class="text-gray-500 text-sm">Driving progress through cutting-edge technological solutions.</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors"><i data-lucide="users"></i></div>
+                        <h3 class="text-xl font-bold mb-3">Liberty Consultancy</h3>
+                        <p class="text-gray-500 text-sm">Expert guidance for business growth and strategic development.</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors"><i data-lucide="hard-hat"></i></div>
+                        <h3 class="text-xl font-bold mb-3">Liberty Construction</h3>
+                        <p class="text-gray-500 text-sm">Building sustainable and modern infrastructure for the future.</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors"><i data-lucide="plane"></i></div>
+                        <h3 class="text-xl font-bold mb-3">Liberty Travel Agency</h3>
+                        <p class="text-gray-500 text-sm">Connecting people and cultures through seamless travel experiences.</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors"><i data-lucide="activity"></i></div>
+                        <h3 class="text-xl font-bold mb-3">Liberty Wellness</h3>
+                        <p class="text-gray-500 text-sm">Promoting holistic health and balanced lifestyles.</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors"><i data-lucide="handshake"></i></div>
+                        <h3 class="text-xl font-bold mb-3">Liberty Partnership Venture</h3>
+                        <p class="text-gray-500 text-sm">Fostering collaboration and shared success globally.</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all group">
+                        <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors"><i data-lucide="heart-handshake"></i></div>
+                        <h3 class="text-xl font-bold mb-3">Liberty Outreach</h3>
+                        <p class="text-gray-500 text-sm">Direct community impact and humanitarian initiatives.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="safehome" class="py-24 bg-indigo-900 text-white overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-indigo-800 rounded-full blur-3xl opacity-30 translate-x-1/2 -translate-y-1/2"></div>
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wider text-indigo-300 uppercase bg-indigo-800 rounded-full">
+                            Mental Health & Psychosocial Support
+                        </span>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6">Safe Home</h2>
+                        <p class="text-xl text-indigo-200 mb-8 leading-relaxed">
+                            A dedicated MHPSS organization providing a safe haven for individuals and families in need of psychosocial support, healing, and restoration.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-indigo-100">
+                                <div class="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                Trauma-informed counseling and support
+                            </li>
+                            <li class="flex items-center gap-3 text-indigo-100">
+                                <div class="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                Women, youth & children advocacy
+                            </li>
+                            <li class="flex items-center gap-3 text-indigo-100">
+                                <div class="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                Community mental health programs
+                            </li>
+                            <li class="flex items-center gap-3 text-indigo-100">
+                                <div class="w-6 h-6 bg-indigo-600 rounded-full flex items-center justify-center flex-shrink-0"><i data-lucide="check" class="w-3 h-3"></i></div>
+                                Psychosocial First Aid training
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="https://picsum.photos/seed/safehome/800/800" alt="Safe Home" class="w-full h-full object-cover opacity-70">
+                        </div>
+                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-600/30 to-transparent"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 bg-white">
+            <div class="max-w-3xl mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-4">Get in Touch</h2>
+                <p class="text-xl text-gray-600 mb-12">Ready to connect, collaborate, or learn more? Reach out and let's build something meaningful together.</p>
+                <div class="grid sm:grid-cols-3 gap-6 mb-12">
+                    <a href="mailto:info@mankaliberator.org" class="p-6 bg-gray-50 rounded-2xl hover:bg-indigo-50 transition-colors group">
+                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-indigo-600 mx-auto mb-4 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            <i data-lucide="mail"></i>
+                        </div>
+                        <p class="font-semibold text-gray-900 mb-1">Email</p>
+                        <p class="text-sm text-gray-500">info@mankaliberator.org</p>
+                    </a>
+                    <a href="tel:+237000000000" class="p-6 bg-gray-50 rounded-2xl hover:bg-indigo-50 transition-colors group">
+                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-indigo-600 mx-auto mb-4 shadow-sm group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                            <i data-lucide="phone"></i>
+                        </div>
+                        <p class="font-semibold text-gray-900 mb-1">Phone</p>
+                        <p class="text-sm text-gray-500">+237 000 000 000</p>
+                    </a>
+                    <div class="p-6 bg-gray-50 rounded-2xl">
+                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-indigo-600 mx-auto mb-4 shadow-sm">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <p class="font-semibold text-gray-900 mb-1">Location</p>
+                        <p class="text-sm text-gray-500">Yaoundé, Cameroon</p>
+                    </div>
+                </div>
+                <a href="mailto:info@mankaliberator.org" class="inline-block px-10 py-4 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 text-lg">
+                    Send a Message
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <a href="#home" class="text-2xl font-bold font-display">
+                        MANKA<span class="text-indigo-400">.</span>
+                    </a>
+                    <p class="text-gray-400 text-sm mt-2">Freeing Minds. Healing Hearts. Transforming Lives.</p>
+                </div>
+                <div class="flex gap-6 text-sm text-gray-400">
+                    <a href="#home" class="hover:text-white transition-colors">Home</a>
+                    <a href="#mission" class="hover:text-white transition-colors">Mission</a>
+                    <a href="#about" class="hover:text-white transition-colors">About</a>
+                    <a href="#books" class="hover:text-white transition-colors">Books</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2026 Manka Liberator | Liberty Global Association. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-blur');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('nav-blur');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
